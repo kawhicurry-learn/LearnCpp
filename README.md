@@ -1,1 +1,1 @@
-# This is a repo for kawhicurry learning C++.
+# This is a repo of kawhicurry to learn C++.
