@@ -7,8 +7,13 @@ class Sales_data
 public:
     //constructor
     Sales_data() = default;
-    Sales_data(const std::string &s) : bookNo(s) {}
+    explicit Sales_data(const std::string &s) : bookNo(s) {}
     Sales_data(const std::string &s, unsigned n, double p) : bookNo(s), units_sold(n), revenue(p * n) {}
+    explicit Sales_data(std::istream &);
+
+    Sales_data() : Sales_data("", 0, 0) {}
+    Sales_data(std::string s) : Sales_data(s, 0, 0) {}
+    Sales_data(std::istream &is) : Sales_data() { read(is, *this); }
     //member functions
     std::string isbn() const
     {
